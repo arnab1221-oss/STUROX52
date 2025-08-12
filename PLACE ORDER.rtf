@@ -1,0 +1,47 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww29200\viewh17820\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="en">\
+<head>\
+    <meta charset="UTF-8">\
+    <title>Place Order - STUROX</title>\
+    <style>\
+        body \{ font-family: Arial; text-align: center; background: #f9f9f9; \}\
+        .form-box \{ margin: 60px auto; background: #fff; padding: 30px; max-width: 400px; border-radius: 12px; \}\
+        label, input \{ display: block; margin: 12px auto; width: 90%; font-size: 1em; \}\
+        input[type='submit'] \{ background: #097a50; color: #fff; border: none; padding: 10px; border-radius: 8px; \}\
+        #price \{ margin: 14px; font-size:1.2em; color:#222; font-weight:bold;\}\
+    </style>\
+    <script>\
+        function calculatePrice() \{\
+            var bw = Number(document.getElementById('bw').value) || 0;\
+            var col = Number(document.getElementById('col').value) || 0;\
+            var price = (bw * 1) + (col * 3);\
+            document.getElementById('price').textContent = "Total: Rs. " + price;\
+        \}\
+    </script>\
+</head>\
+<body>\
+    <div class="form-box">\
+        <h2>Place Your Order</h2>\
+        <form action="payment.html" method="post">\
+            <label for="name">Name</label>\
+            <input required type="text" id="name" name="name">\
+            <label for="roll">Roll/ID</label>\
+            <input required type="text" id="roll" name="roll">\
+            <label for="bw">No. of Black & White Pages</label>\
+            <input required type="number" id="bw" name="bw" min="0" value="0" oninput="calculatePrice()">\
+            <label for="col">No. of Colour Pages</label>\
+            <input required type="number" id="col" name="col" min="0" value="0" oninput="calculatePrice()">\
+            <div id="price">Total: Rs. 0</div>\
+            <input type="submit" value="Proceed to Payment">\
+        </form>\
+    </div>\
+</body>\
+</html>\
+}
